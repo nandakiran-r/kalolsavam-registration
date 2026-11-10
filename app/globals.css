@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Noto Sans Malayalam";
+  src: url("/fonts/NotoSansMalayalam.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-bricolage), var(--font-manrope), ui-sans-serif, sans-serif;
+
+  --color-ink: #13243a;
+  --color-ink-2: #1d3550;
+  --color-ink-soft: #4b5c70;
+  --color-ink-faint: #758394;
+  --color-paper: #f6f3ec;
+  --color-paper-2: #efe9dd;
+  --color-paper-3: #e7dfd0;
+  --color-maroon: #7b2532;
+  --color-maroon-2: #5d1824;
+  --color-maroon-soft: #f3e3e3;
+  --color-gold: #b0843c;
+  --color-gold-soft: #f2e8d4;
+  --color-line: #ded5c5;
+  --color-line-strong: #c9bda8;
+  --color-green: #236b55;
+  --color-green-soft: #e2f0ea;
+  --color-danger: #a33228;
+  --color-danger-soft: #f8e7e4;
+}
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  border-color: var(--color-line);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01" on, "cv11" on;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-gold-soft);
+  color: var(--color-ink);
+}
+
+.font-malayalam {
+  font-family: "Noto Sans Malayalam", var(--font-sans), sans-serif;
+  font-feature-settings: normal;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-maroon);
+  outline-offset: 2px;
+}
+
+@layer components {
+  .wrap {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .label {
+    @apply mb-1.5 block text-[13px] font-semibold tracking-[0.01em] text-ink-2;
+  }
+
+  .help {
+    @apply mt-1.5 text-xs leading-relaxed text-ink-soft;
+  }
+
+  .error-text {
+    @apply mt-1.5 flex items-start gap-1.5 text-xs font-medium text-danger;
+  }
+
+  .input {
+    @apply w-full rounded-lg border border-line-strong bg-white px-3.5 py-2.5 text-[15px] text-ink shadow-[0_1px_0_rgba(19,36,58,0.03)] transition placeholder:text-ink-faint/80 focus:border-maroon focus:ring-2 focus:ring-maroon/15 focus:outline-none disabled:cursor-not-allowed disabled:bg-paper-2/60;
+  }
+
+  .input-invalid {
+    @apply border-danger focus:border-danger focus:ring-danger/15;
+  }
+
+  .card {
+    @apply rounded-2xl border border-line bg-white shadow-[0_1px_2px_rgba(19,36,58,0.04),0_16px_48px_-32px_rgba(19,36,58,0.28)];
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-bold uppercase tracking-[0.18em] text-maroon;
+  }
+
+  .house-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold;
+  }
+
+  .btn,
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-danger {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition select-none active:translate-y-px disabled:pointer-events-none disabled:opacity-55;
+  }
+
+  .btn-primary {
+    @apply bg-maroon text-white hover:bg-maroon-2;
+  }
+
+  .btn-secondary {
+    @apply border border-line-strong bg-white text-ink hover:bg-paper-2;
+  }
+
+  .btn-ghost {
+    @apply text-ink-2 hover:bg-paper-2;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-white hover:bg-[#8c281f];
+  }
+
+  .table-head {
+    @apply bg-paper-2/70 text-left text-[11px] font-bold uppercase tracking-[0.09em] text-ink-soft;
+  }
+}
+
+/* Loading shimmer */
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-paper-2);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* The printable slip is rendered off-screen for html2canvas. */
+.pdf-stage {
+  position: fixed;
+  left: -12000px;
+  top: 0;
+  z-index: -1;
+  pointer-events: none;
+}

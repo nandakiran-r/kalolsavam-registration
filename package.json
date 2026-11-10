@@ -1,0 +1,38 @@
+{
+  "name": "kalolsavam-registration",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Kalolsavam student registration system for St. Joseph's College (Autonomous), Devagiri",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "db:setup": "tsx scripts/db-setup.ts",
+    "admin:reset": "tsx scripts/reset-admin.ts"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "bcryptjs": "^3.0.3",
+    "html2canvas-pro": "^2.6.3",
+    "jose": "^6.2.2",
+    "jspdf": "^4.2.1",
+    "next": "16.4.6",
+    "pg": "^8.18.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "server-only": "^0.0.1",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@types/node": "^24.10.1",
+    "@types/pg": "^8.15.6",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "dotenv": "^17.2.4",
+    "tailwindcss": "^4.3.5",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3"
+  }
+}
