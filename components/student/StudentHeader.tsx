@@ -23,7 +23,7 @@ export function StudentHeader() {
           </span>
         </Link>
 
-        <div className="flex shrink-0 items-center gap-3">
+        {/* <div className="flex shrink-0 items-center gap-3">
           <span className="hidden text-xs font-semibold text-ink-soft sm:inline">
             One device · one registration
           </span>
@@ -34,7 +34,7 @@ export function StudentHeader() {
             <LockKey size={14} weight="bold" />
             Admin
           </Link>
-        </div>
+        </div> */}
       </div>
     </header>
   );
