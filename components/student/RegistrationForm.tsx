@@ -279,7 +279,6 @@ export function RegistrationForm({
                 onChange={(event) => update("name", event.target.value)}
                 autoComplete="name"
                 maxLength={80}
-                placeholder="Ananya K. Menon"
                 aria-invalid={Boolean(errors.name)}
                 aria-describedby={errors.name ? "name-error" : "name-hint"}
                 required
@@ -326,7 +325,6 @@ export function RegistrationForm({
               autoComplete="email"
               inputMode="email"
               maxLength={120}
-              placeholder="ananya@example.com"
               aria-invalid={Boolean(errors.email)}
               aria-describedby={errors.email ? "email-error" : "email-hint"}
               required
